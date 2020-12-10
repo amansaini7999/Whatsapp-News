@@ -10,9 +10,17 @@ def send_message(pdf_loc, contact_list):
     from .config import CHROME_PROFILE_PATH
 
     options = webdriver.ChromeOptions()
+    options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
     options.add_argument(CHROME_PROFILE_PATH)
+    options.add_argument("--headless")
+    options.add_argument("--disable-dev-shm-usage")
 
-    driver = webdriver.Chrome("/home/aman/Downloads/chromedriver", options=options)
+    #For Heroku
+    driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=options)
+
+    #For Local
+    #driver = webdriver.Chrome("/home/aman/Downloads/chromedriver", options=options)
+    
     driver.get("https://web.whatsapp.com")
     
     try:
@@ -50,7 +58,7 @@ def send_message(pdf_loc, contact_list):
             pdf_loc = os.path.abspath('..') + "/" + pdf_loc
             document_box.send_keys(pdf_loc)
 
-            time.sleep(3)
+            time.sleep(5)
             send_btn_xpath = '//span[@data-icon="send"]'
             send_btn = driver.find_element_by_xpath(send_btn_xpath)      
             send_btn.click()
