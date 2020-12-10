@@ -1,4 +1,4 @@
-def send_message(text, contact_list):
+def send_message(pdf_loc, contact_list):
     from selenium import webdriver
     from selenium.webdriver.common.by import By
     from selenium.webdriver.support.ui import WebDriverWait
@@ -6,7 +6,7 @@ def send_message(text, contact_list):
     from selenium.webdriver.common.keys import Keys
 
     import time
-    from .config import CHROME_PROFILE_PATH
+    from config import CHROME_PROFILE_PATH
 
     options = webdriver.ChromeOptions()
     options.add_argument(CHROME_PROFILE_PATH)
@@ -29,12 +29,17 @@ def send_message(text, contact_list):
             )
             contact_title.click()
 
-            input_xpath = '//div[@contenteditable="true"][@data-tab="6"]'
+            '''input_xpath = '//div[@contenteditable="true"][@data-tab="6"]'
             input_box = WebDriverWait(driver, 50).until(
                 EC.presence_of_element_located((By.XPATH, input_xpath))
             )
             input_box.send_keys(text)
-            input_box.send_keys(Keys.ENTER)
+            input_box.send_keys(Keys.ENTER)'''
 
     finally:
-        driver.quit()
+        print("success")
+        # driver.quit()
+
+pdf_loc = "/home/aman/Tech/Cool Projects/Whatsapp News/News/temp/dailyexcelsior.pdf"
+contact_list = ["+91 60057 47938"]
+send_message(pdf_loc, contact_list)
