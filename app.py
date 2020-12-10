@@ -1,24 +1,26 @@
-from flask import Flask, render_template
-app = Flask(__name__)
+# from flask import Flask
+# app = Flask(__name__)
 
 def job():
+    import os
     from News.news import scrape
     from Whatsapp.whatsapp import send_message
 
-    text = "Hey, this message was sent using Selenium"
-    contact_list = ["+91 60057 47938"]#, "Harish Tomar AIT"]
-
+    os.mkdir("News/temp")
     scrape()
 
-    send_message(text, contact_list)
+    #text = "Hey, this message was sent using Selenium"
+    contact_list = ["+91 60057 47938"]#, "Harish Tomar AIT"]
+    pdf_loc = "Whatsapp News/News/temp/dailyexcelsior.pdf"
+    send_message(pdf_loc, contact_list)
+    os.rmdir("News/temp/")
 
-    return 1
-
-@app.route('/')
-def schedule():
+#@app.route('/')
+'''def schedule():
     response = {}
     response["response"] = job()
-    return response
+    return response'''
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    job()
+#    app.run(debug=True)

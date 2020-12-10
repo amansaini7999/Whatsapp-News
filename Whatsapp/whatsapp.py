@@ -6,40 +6,54 @@ def send_message(pdf_loc, contact_list):
     from selenium.webdriver.common.keys import Keys
 
     import time
-    from config import CHROME_PROFILE_PATH
+    import sys, os
+    from .config import CHROME_PROFILE_PATH
 
     options = webdriver.ChromeOptions()
     options.add_argument(CHROME_PROFILE_PATH)
 
     driver = webdriver.Chrome("/home/aman/Downloads/chromedriver", options=options)
     driver.get("https://web.whatsapp.com")
-
+    
     try:
         for contact in contact_list:
+
             search_xpath = '//div[@contenteditable="true"][@data-tab="3"]'
-            search_box = WebDriverWait(driver, 50).until(
+            search_box = WebDriverWait(driver, 500).until(
                 EC.presence_of_element_located((By.XPATH, search_xpath))
             )
             search_box.clear()
             search_box.send_keys(contact)
 
             contact_xpath = f'//span[@title="{contact}"]'
-            contact_title = WebDriverWait(driver, 50).until(
+            contact_title = WebDriverWait(driver, 500).until(
                 EC.presence_of_element_located((By.XPATH, contact_xpath))
             )
             contact_title.click()
 
-            '''input_xpath = '//div[@contenteditable="true"][@data-tab="6"]'
+            # Send Text
+            input_xpath = '//div[@contenteditable="true"][@data-tab="6"]'
             input_box = WebDriverWait(driver, 50).until(
                 EC.presence_of_element_located((By.XPATH, input_xpath))
             )
-            input_box.send_keys(text)
-            input_box.send_keys(Keys.ENTER)'''
+            input_box.send_keys("text sent")
+            input_box.send_keys(Keys.ENTER)
+
+            # Send Attachment
+            attachment_xpath = '//span[@data-testid="clip"][@data-icon="clip"]'
+            attachment_box = WebDriverWait(driver, 500).until(
+                EC.presence_of_element_located((By.XPATH, attachment_xpath))
+            )
+            attachment_box.click()
+
+            document_box = driver.find_element_by_xpath('//input[@accept="*"]')
+            pdf_loc = os.path.abspath('..') + "/" + pdf_loc
+            document_box.send_keys(pdf_loc)
+
+            time.sleep(3)
+            send_btn_xpath = '//span[@data-icon="send"]'
+            send_btn = driver.find_element_by_xpath(send_btn_xpath)      
+            send_btn.click()
 
     finally:
-        print("success")
-        # driver.quit()
-
-pdf_loc = "/home/aman/Tech/Cool Projects/Whatsapp News/News/temp/dailyexcelsior.pdf"
-contact_list = ["+91 60057 47938"]
-send_message(pdf_loc, contact_list)
+        driver.quit()
