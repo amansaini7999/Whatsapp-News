@@ -19,7 +19,7 @@ def send_message(pdf_loc, contact_list):
     #driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=options)
 
     #For Local or EC2
-    driver = webdriver.Chrome("chromedriver", options=options)    
+    driver = webdriver.Chrome("Whatsapp/chromedriver", options=options)    
     driver.get("https://web.whatsapp.com")
     
     try:
@@ -39,27 +39,27 @@ def send_message(pdf_loc, contact_list):
             contact_title.click()
 
             # Send Text
-            input_xpath = '//div[@contenteditable="true"][@data-tab="6"]'
+            '''input_xpath = '//div[@contenteditable="true"][@data-tab="6"]'
             input_box = WebDriverWait(driver, 50).until(
                 EC.presence_of_element_located((By.XPATH, input_xpath))
             )
             input_box.send_keys("text sent")
-            input_box.send_keys(Keys.ENTER)
+            input_box.send_keys(Keys.ENTER)'''
 
             # Send Attachment
-            '''attachment_xpath = '//span[@data-testid="clip"][@data-icon="clip"]'
+            attachment_xpath = '//span[@data-testid="clip"][@data-icon="clip"]'
             attachment_box = WebDriverWait(driver, 500).until(
                 EC.presence_of_element_located((By.XPATH, attachment_xpath))
             )
             attachment_box.click()
 
             document_box = driver.find_element_by_xpath('//input[@accept="*"]')
-            pdf_loc = os.path.abspath('..') + "/" + pdf_loc
+            pdf_loc = os.path.abspath('..') + "/" + pdf_loc + "dailyexcelsior.pdf"
             document_box.send_keys(pdf_loc)
 
             time.sleep(3)
             send_btn = WebDriverWait(driver, 500).until(EC.presence_of_element_located((By.XPATH, '//span[@data-icon="send"]')))
-            send_btn.click()'''
+            send_btn.click()
 
             time.sleep(10)
 

@@ -46,7 +46,7 @@ def scrape():
 
     mon = extract_month(current_time.tm_mon)
     year = current_time.tm_year
-    date = current_time.tm_mday-1 #temporary
+    date = current_time.tm_mday
 
     from bs4 import BeautifulSoup as BS
     import requests
