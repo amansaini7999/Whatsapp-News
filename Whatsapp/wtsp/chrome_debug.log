@@ -1,1 +1,6 @@
-[5196:5196:1211/105633.304586:ERROR:sandbox_linux.cc(374)] InitializeSandbox() called with multiple threads in process gpu-process.
+[21947:21947:1211/134253.878422:ERROR:sandbox_linux.cc(374)] InitializeSandbox() called with multiple threads in process gpu-process.
+[21911:21911:1211/134255.428543:INFO:CONSOLE(156)] "Slow network is detected. See https://www.chromestatus.com/feature/5636954674692096 for more details. Fallback font will be used while loading: https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu4mxK.woff2", source:  (156)
+[21947:21970:1211/134314.707371:ERROR:latency_info.cc(150)] CompositorFrameSinkSupport::MaybeSubmitCompositorFrame, LatencyInfo vector size 125 is too big.
+[21947:21970:1211/134330.238479:ERROR:latency_info.cc(150)] CompositorFrameSinkSupport::MaybeSubmitCompositorFrame, LatencyInfo vector size 126 is too big.
+[21947:21970:1211/134345.622148:ERROR:latency_info.cc(150)] CompositorFrameSinkSupport::MaybeSubmitCompositorFrame, LatencyInfo vector size 125 is too big.
+[21947:21970:1211/134401.364605:ERROR:latency_info.cc(150)] CompositorFrameSinkSupport::MaybeSubmitCompositorFrame, LatencyInfo vector size 125 is too big.
