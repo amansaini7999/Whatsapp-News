@@ -10,17 +10,16 @@ def send_message(pdf_loc, contact_list):
     from .config import CHROME_PROFILE_PATH
 
     options = webdriver.ChromeOptions()
-    options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+    #options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")      #Heroku
     options.add_argument(CHROME_PROFILE_PATH)
-    options.add_argument("--headless")
-    options.add_argument("--disable-dev-shm-usage")
+    #options.add_argument("--headless")                                 #Heroku
+    #options.add_argument("--disable-dev-shm-usage")                    #Heroku
 
     #For Heroku
-    driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=options)
+    #driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=options)
 
-    #For Local
-    #driver = webdriver.Chrome("/home/aman/Downloads/chromedriver", options=options)
-    
+    #For Local or EC2
+    driver = webdriver.Chrome("chromedriver", options=options)    
     driver.get("https://web.whatsapp.com")
     
     try:
