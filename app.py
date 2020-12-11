@@ -13,7 +13,7 @@ def job():
     shutil.rmtree("News/temp/", ignore_errors = False)
 
 def schedule_job():
-    import schedule
+    #import schedule
     import time
     job()
     '''schedule.every().minutes.do(job)
