@@ -1,5 +1,4 @@
 bs4==0.0.1
-chrome-gnome-shell==0.0.0
 gunicorn==20.0.4
 numpy==1.19.3
 PyPDF2==1.26.0
