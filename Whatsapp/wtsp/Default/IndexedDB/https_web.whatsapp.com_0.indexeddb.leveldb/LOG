@@ -1,6 +1,3 @@
-2020/12/11-02:18:34.596 171e0 Reusing MANIFEST /home/aman/Tech/Cool Projects/Whatsapp News/Whatsapp/wtsp/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
-2020/12/11-02:18:34.597 171e0 Recovering log #3
-2020/12/11-02:18:34.744 171e0 Reusing old log /home/aman/Tech/Cool Projects/Whatsapp News/Whatsapp/wtsp/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/000003.log 
-2020/12/11-02:19:01.026 17281 Level-0 table #5: started
-2020/12/11-02:19:01.154 17281 Level-0 table #5: 1103544 bytes OK
-2020/12/11-02:19:01.249 17281 Delete type=0 #3
+2020/12/11-10:04:26.127 1c6c6 Reusing MANIFEST /home/aman/Tech/Cool Projects/Whatsapp News/Whatsapp/wtsp/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2020/12/11-10:04:26.127 1c6c6 Recovering log #7
+2020/12/11-10:04:26.165 1c6c6 Reusing old log /home/aman/Tech/Cool Projects/Whatsapp News/Whatsapp/wtsp/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/000007.log 

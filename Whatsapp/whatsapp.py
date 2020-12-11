@@ -48,7 +48,7 @@ def send_message(pdf_loc, contact_list):
             input_box.send_keys(Keys.ENTER)
 
             # Send Attachment
-            attachment_xpath = '//span[@data-testid="clip"][@data-icon="clip"]'
+            '''attachment_xpath = '//span[@data-testid="clip"][@data-icon="clip"]'
             attachment_box = WebDriverWait(driver, 500).until(
                 EC.presence_of_element_located((By.XPATH, attachment_xpath))
             )
@@ -58,10 +58,11 @@ def send_message(pdf_loc, contact_list):
             pdf_loc = os.path.abspath('..') + "/" + pdf_loc
             document_box.send_keys(pdf_loc)
 
-            time.sleep(5)
-            send_btn_xpath = '//span[@data-icon="send"]'
-            send_btn = driver.find_element_by_xpath(send_btn_xpath)      
-            send_btn.click()
+            time.sleep(3)
+            send_btn = WebDriverWait(driver, 500).until(EC.presence_of_element_located((By.XPATH, '//span[@data-icon="send"]')))
+            send_btn.click()'''
+
+            time.sleep(10)
 
     finally:
         driver.quit()
